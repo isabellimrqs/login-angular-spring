@@ -1,9 +1,21 @@
 <app-default-login-layout 
-    title="Login into your account"
-    primaryBtnText="Login Now"
-    secondaryBtnText="Signup Now"
+    title="Sign in and start today!"
+    primaryBtnText="Signup Now"
+    secondaryBtnText="Login Now"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disablePrimaryBtn]="!loginForm.valid"
 >
     <form [formGroup]="loginForm">
+        <app-primary-input
+            formControlName="name"
+            inputName="name"
+            type="text"
+            label="Your Name"
+            placeholder="John Doe">
+            <img src="/assets/svg/mail.svg"/>
+        </app-primary-input>
+
         <app-primary-input
             formControlName="email"
             inputName="email"
@@ -20,5 +32,14 @@
             label="Your Password">
             <img src="/assets/svg/pass.svg"/>
         </app-primary-input>
+
+        <app-primary-input
+            formControlName="passwordConfirmation"
+            inputName="passwordConfirmation"
+            type="password"
+            label="Confirm your Password">
+            <img src="/assets/svg/pass.svg"/>
+        </app-primary-input>
+
     </form>
 </app-default-login-layout>
